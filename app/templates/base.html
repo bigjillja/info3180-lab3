@@ -10,6 +10,32 @@
 
     <title>Flask Starter App</title>
 
+    <style>
+      .category {
+        padding: 12px;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+        border: 2px solid orange;
+        background-color: yellow;
+        color: black;
+      }
+      ul {
+        list-style-type: none;
+      }
+    </style>
+
+    {% with messages =
+      get_flashed_messages(with_categories=true) %}
+       {% if messages %}
+       <ul class="flashes">
+       {% for category, message in messages %}
+       <li class="category">{{ message }}</li>
+       {% endfor %}
+       </ul>
+       {% endif %}
+      {% endwith %}
+
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
